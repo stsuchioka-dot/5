@@ -1,0 +1,23 @@
+PC貸出管理（学習用）
+デモ社員：1=社員A、2=社員B、3=休職者。実際の認証機能は未実装です。
+デモ操作社員ID: コマンド：list / lend / return / confirm / result / quit
+> 貸出可能PC: [
+  {
+    "id": 1,
+    "asset_no": "PC-0001",
+    "model_name": "共用PC A"
+  },
+  {
+    "id": 2,
+    "asset_no": "PC-0002",
+    "model_name": "共用PC B"
+  }
+]
+自分の未返却: []
+> 端末ID: 返却予定日 YYYY-MM-DD: 利用目的: 確認内容: {"device_id": 1, "due_date": "2026-09-21", "purpose": "会議用", "asset_no": "PC-0001"}
+確認・操作ID（再送／照会用）: COxGf8W68gMvmN3-XlPb2icEYUndsbXh
+確定しますか？ yes: PC-0001 を貸し出しました。返却予定日は 2026-09-21 です。
+> 貸出ID: 確認内容: {"lending_id": 1}
+確認・操作ID（再送／照会用）: X3x4hUt49zM2c4Z5P5VSD4uNhEMDuyIN
+確定しますか？ yes: PC-0001 を返却しました。
+> 

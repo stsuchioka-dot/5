@@ -1,0 +1,27 @@
+test_db_unique_constraint (test_app.Tests.test_db_unique_constraint) ... ok
+test_double_submit_and_result_recovery (test_app.Tests.test_double_submit_and_result_recovery) ... ok
+test_employee_change_after_confirmation (test_app.Tests.test_employee_change_after_confirmation) ... ok
+test_failure_before_commit_rolls_back_result_too (test_app.Tests.test_failure_before_commit_rolls_back_result_too) ... ok
+test_inconsistent_device (test_app.Tests.test_inconsistent_device) ... ok
+test_input_boundaries (test_app.Tests.test_input_boundaries) ... ok
+test_lend_rollback (test_app.Tests.test_lend_rollback) ... ok
+test_old_return_does_not_affect_new_loan (test_app.Tests.test_old_return_does_not_affect_new_loan) ... ok
+test_other_employee_cannot_confirm_or_read (test_app.Tests.test_other_employee_cannot_confirm_or_read) ... ok
+test_return_rollback (test_app.Tests.test_return_rollback) ... ok
+test_same_device_two_employees (test_app.Tests.test_same_device_two_employees) ... ok
+test_same_employee_two_devices (test_app.Tests.test_same_employee_two_devices) ... ok
+test_exact_boundaries_and_special_characters (test_checklist.ChecklistTests.test_exact_boundaries_and_special_characters) ... ok
+test_midnight_rechecks_confirmation (test_checklist.ChecklistTests.test_midnight_rechecks_confirmation) ... ok
+test_missing_device_and_employee (test_checklist.ChecklistTests.test_missing_device_and_employee) ... ok
+test_overdue_rejects_new_but_allows_return (test_checklist.ChecklistTests.test_overdue_rejects_new_but_allows_return) ... ok
+test_payload_changed_outside_service_does_not_change_saved_content (test_checklist.ChecklistTests.test_payload_changed_outside_service_does_not_change_saved_content) ... ok
+test_real_sqlite_lock_timeout_leaves_no_updates (test_checklist.ChecklistTests.test_real_sqlite_lock_timeout_leaves_no_updates) ... ok
+test_retired_and_leave (test_checklist.ChecklistTests.test_retired_and_leave) ... ok
+test_unavailable_and_wrong_type (test_checklist.ChecklistTests.test_unavailable_and_wrong_type) ... ok
+test_unborrowed_return_and_invalid_confirmation (test_checklist.ChecklistTests.test_unborrowed_return_and_invalid_confirmation) ... ok
+test_zero_inventory (test_checklist.ChecklistTests.test_zero_inventory) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 2.775s
+
+OK

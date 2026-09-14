@@ -1,0 +1,17 @@
+test_db_unique_constraint (test_app.Tests.test_db_unique_constraint) ... ok
+test_double_submit_and_result_recovery (test_app.Tests.test_double_submit_and_result_recovery) ... ok
+test_employee_change_after_confirmation (test_app.Tests.test_employee_change_after_confirmation) ... ok
+test_failure_before_commit_rolls_back_result_too (test_app.Tests.test_failure_before_commit_rolls_back_result_too) ... ok
+test_inconsistent_device (test_app.Tests.test_inconsistent_device) ... ok
+test_input_boundaries (test_app.Tests.test_input_boundaries) ... ok
+test_lend_rollback (test_app.Tests.test_lend_rollback) ... ok
+test_old_return_does_not_affect_new_loan (test_app.Tests.test_old_return_does_not_affect_new_loan) ... ok
+test_other_employee_cannot_confirm_or_read (test_app.Tests.test_other_employee_cannot_confirm_or_read) ... ok
+test_return_rollback (test_app.Tests.test_return_rollback) ... ok
+test_same_device_two_employees (test_app.Tests.test_same_device_two_employees) ... ok
+test_same_employee_two_devices (test_app.Tests.test_same_employee_two_devices) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.299s
+
+OK
