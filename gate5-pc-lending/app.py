@@ -13,6 +13,11 @@ DEFAULT_DB = Path(__file__).with_name('lending.sqlite3')
 class Rejected(Exception):
     pass
 
+def valid_id(value):
+    if type(value) is not int or not 1 <= value <= 9223372036854775807:
+        raise Rejected('IDは1〜9223372036854775807の整数で入力してください。')
+    return value
+
 class LendingService:
     def __init__(self, path=DEFAULT_DB, fault=None):
         self.path = str(path)
@@ -72,6 +77,7 @@ class LendingService:
             db.executemany('INSERT INTO devices VALUES(?,?,?,?,?)',[(1,'PC-0001','共用PC A','LAPTOP','AVAILABLE'),(2,'PC-0002','共用PC B','LAPTOP','AVAILABLE'),(3,'PC-0003','修理PC','LAPTOP','REPAIR')])
 
     def employee(self, db, actor, active=False):
+        valid_id(actor)
         e = db.execute('SELECT * FROM employees WHERE id=?',(actor,)).fetchone()
         if not e:
             raise Rejected('社員情報を確認できません。')
@@ -99,6 +105,7 @@ class LendingService:
         return purpose
 
     def check_lend(self, db, actor, device_id):
+        valid_id(device_id)
         self.employee(db,actor,True)
         d = db.execute('SELECT * FROM devices WHERE id=?',(device_id,)).fetchone()
         if not d:
@@ -125,6 +132,7 @@ class LendingService:
             return self.save_confirmation(db,actor,'lend',payload)
 
     def prepare_return(self, actor, lending_id):
+        valid_id(lending_id)
         with self.transaction() as db:
             self.employee(db,actor)
             l = db.execute('SELECT * FROM lendings WHERE id=? AND user_id=?',(lending_id,actor)).fetchone()
@@ -195,8 +203,15 @@ def main():
     parser.add_argument('--db',default=str(DEFAULT_DB)); args=parser.parse_args()
     svc=LendingService(args.db);svc.initialize();svc.seed_demo()
     print('PC貸出管理（学習用）\nデモ社員：1=社員A、2=社員B、3=休職者。実際の認証機能は未実装です。')
-    try: actor=int(input('デモ操作社員ID: '))
-    except ValueError: return
+    while True:
+        try:
+            actor=valid_id(int(input('デモ操作社員ID: ')))
+            svc.lists(actor)
+            break
+        except (ValueError,Rejected) as e:
+            print('エラー:',str(e) if isinstance(e,Rejected) else 'IDは整数で入力してください。')
+        except (EOFError,KeyboardInterrupt):
+            return
     print('コマンド：list / lend / return / confirm / result / quit')
     while True:
         token=None

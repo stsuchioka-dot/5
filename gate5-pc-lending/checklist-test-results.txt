@@ -13,6 +13,7 @@ test_same_employee_two_devices (test_app.Tests.test_same_employee_two_devices) .
 test_exact_boundaries_and_special_characters (test_checklist.ChecklistTests.test_exact_boundaries_and_special_characters) ... ok
 test_midnight_rechecks_confirmation (test_checklist.ChecklistTests.test_midnight_rechecks_confirmation) ... ok
 test_missing_device_and_employee (test_checklist.ChecklistTests.test_missing_device_and_employee) ... ok
+test_out_of_range_ids_are_rejected_without_update (test_checklist.ChecklistTests.test_out_of_range_ids_are_rejected_without_update) ... ok
 test_overdue_rejects_new_but_allows_return (test_checklist.ChecklistTests.test_overdue_rejects_new_but_allows_return) ... ok
 test_payload_changed_outside_service_does_not_change_saved_content (test_checklist.ChecklistTests.test_payload_changed_outside_service_does_not_change_saved_content) ... ok
 test_real_sqlite_lock_timeout_leaves_no_updates (test_checklist.ChecklistTests.test_real_sqlite_lock_timeout_leaves_no_updates) ... ok
@@ -22,6 +23,6 @@ test_unborrowed_return_and_invalid_confirmation (test_checklist.ChecklistTests.t
 test_zero_inventory (test_checklist.ChecklistTests.test_zero_inventory) ... ok
 
 ----------------------------------------------------------------------
-Ran 22 tests in 2.775s
+Ran 23 tests in 2.776s
 
 OK

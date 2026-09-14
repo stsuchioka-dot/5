@@ -4,6 +4,7 @@ import unittest
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timedelta
 from pathlib import Path
+from threading import Barrier
 from app import LendingService,Rejected,JST
 
 class Tests(unittest.TestCase):
@@ -18,7 +19,9 @@ class Tests(unittest.TestCase):
         try:return [tuple(r) for r in db.execute(sql)]
         finally:db.close()
     def race(self,items):
+        barrier=Barrier(len(items))
         def run(item):
+            barrier.wait(timeout=5)
             try:return LendingService(self.path).confirm(*item)
             except Rejected:return None
         with ThreadPoolExecutor(max_workers=2) as pool:return list(pool.map(run,items))

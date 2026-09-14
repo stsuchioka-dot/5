@@ -7,6 +7,14 @@ import test_app
 from app import LendingService,Rejected,JST
 
 class ChecklistTests(unittest.TestCase):
+    def test_out_of_range_ids_are_rejected_without_update(self):
+        for value in [0,-1,9223372036854775808,10**100,True,1.5,'1']:
+            with self.subTest(value=value):
+                with self.assertRaises(Rejected):self.s.prepare_lend(1,value,self.due,'用途')
+                with self.assertRaises(Rejected):self.s.prepare_return(1,value)
+                with self.assertRaises(Rejected):self.s.lists(value)
+        self.assertEqual(self.query('SELECT count(*) FROM lendings'),[(0,)])
+
     setUp=test_app.Tests.setUp
     tearDown=test_app.Tests.tearDown
     prep=test_app.Tests.prep
